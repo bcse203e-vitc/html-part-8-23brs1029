@@ -1,0 +1,50 @@
+<html>
+<head>
+
+    <title>Dynamic Font Size Adjuster</title>
+    <style>
+
+        .container {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Dynamic Font Size Adjuster</h2>
+        <p id="text">This is a sample text. Click the buttons to adjust its size.</p>
+        <button onclick="changeFontSize(1)">Increase Font Size</button>
+        <button onclick="changeFontSize(-1)">Decrease Font Size</button>
+
+    </div>
+    
+    <script>
+        function changeFontSize(change) {
+            let text = document.getElementById("text");
+            let currentSize = window.getComputedStyle(text, null).getPropertyValue("font-size");
+            let newSize = parseFloat(currentSize) + change;
+            text.style.fontSize = newSize + "px";
+            
+        }
+    </script>
+</body>
+</html>
