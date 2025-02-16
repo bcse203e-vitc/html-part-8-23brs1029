@@ -1,0 +1,43 @@
+<html>
+<head>
+
+    <title>Show or Hide Password</title>
+
+    <style>
+        
+        .container {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        input[type="password"], input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <input type="checkbox" id="togglePassword" onclick="togglePasswordVisibility()">
+        <label for="togglePassword">Show Password</label>
+
+    </div>
+    
+    <script>
+        function togglePasswordVisibility() {
+            let passwordInput = document.getElementById("password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+
+    </script>
+</body>
+</html>
