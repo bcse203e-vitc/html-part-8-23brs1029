@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Detect Key Pressed</title>
+    <style>
+
+        .container {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            font-size: 1.5em;
+        }
+        
+        .key-display {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Press any key</h2>
+        <div class="key-display" id="keyDisplay">You pressed: </div>
+    </div>
+    
+    <script>
+        document.addEventListener("keydown", function(event) {
+            document.getElementById("keyDisplay").textContent = `You pressed: ${event.key}`;
+        });
+    </script>
+</body>
+</html>
