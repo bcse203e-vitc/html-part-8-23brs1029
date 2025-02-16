@@ -1,0 +1,74 @@
+<html>
+<head>
+
+    <title>Countdown Timer</title>
+    <style>
+
+        .container {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1.2em;
+            width: 100px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .timer {
+            margin-top: 20px;
+            font-size: 2em;
+            font-weight: bold;
+            color: #FF0000;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Countdown Timer</h2>
+        <input type="number" id="timeInput" placeholder="Seconds">
+        <button onclick="startCountdown()">Start</button>
+        <div class="timer" id="timerDisplay"></div>
+
+    </div>
+    
+    <script>
+        let countdown;
+        
+        function startCountdown() {
+
+            clearInterval(countdown);
+            let time = parseInt(document.getElementById("timeInput").value);
+            if (isNaN(time) || time <= 0) {
+                document.getElementById("timerDisplay").textContent = "Enter a valid number";
+                return;
+            }
+            
+            document.getElementById("timerDisplay").textContent = time;
+            countdown = setInterval(() => {
+                time--;
+                document.getElementById("timerDisplay").textContent = time;
+                if (time <= 0) {
+                    clearInterval(countdown);
+                    document.getElementById("timerDisplay").textContent = "Time's up!";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
