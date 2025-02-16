@@ -1,0 +1,78 @@
+<html>
+<head>
+
+    <title>Image Carousel</title>
+    <style>
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            gap: 30px;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+            background-color: black;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+
+        <div class="carousel" id="carousel">
+            <img src="https://I1" alt="Image 1">
+            <img src="https://I2" alt="Image 2">
+            <img src="https://I3" alt="Image 3">
+            
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <script>
+        let index = 0;
+        const images = document.querySelectorAll(".carousel img");
+        const totalImages = images.length;
+
+        function updateCarousel() {
+            document.getElementById("carousel").style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide() {
+            index = (index + 1) % totalImages;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            index = (index - 1 + totalImages) % totalImages;
+            updateCarousel();
+        }
+
+        setInterval(nextSlide, 3000); 
+
+    </script>
+</body>
+</html>
